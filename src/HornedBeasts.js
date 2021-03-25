@@ -24,7 +24,7 @@ class HornedBeasts extends React.Component {
     return (
     <div>
       <h2>{this.props.title}</h2>
-      <img className= "animal-pictures" src={this.props.image_url} alt ={this.props.keyword} title={this.props.title}/>
+      <img onClick={this.buttonClicked} className= "animal-pictures" src={this.props.image_url} alt ={this.props.keyword} title={this.props.title}/>
       <div><AiFillHeart />{this.state.numberOfHearts}</div>
       <p>{this.props.description}</p>
       <Button onClick={this.buttonClicked} variant="secondary" size="lg block">
