@@ -7,7 +7,7 @@ import data from './data.json';
 class Main extends React.Component {
   render() {
     let beastArray =[];
-    data.forEach((animal) => {
+    data.forEach( animal => {
       beastArray.push(
         <HornedBeasts
           name = {animal.keyword}
@@ -20,9 +20,9 @@ class Main extends React.Component {
 
 
     return (
-      <div>
+      <main>
         {beastArray}
-      </div>
+      </main>
     );
 
   }
