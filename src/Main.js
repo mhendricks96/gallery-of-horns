@@ -2,21 +2,20 @@ import React from 'react';
 import HornedBeasts from './HornedBeasts';
 import './Main.css'
 
-import data from './data.json';
+//import data from './data.json';
 
 class Main extends React.Component {
   render() {
-    let beastArray =[];
-    data.forEach( animal => {
-      beastArray.push(
-        <HornedBeasts
-          name = {animal.keyword}
-          title = {animal.title}
-          image_url = {animal.image_url}
-          description = {animal.description}
-        /> 
-      );
-    });
+    let beastArray = this.props.beasts.map((beast, index) => (
+      <HornedBeasts
+        name={beast.keyword}
+        title={beast.title}
+        image_url={beast.image_url}
+        description={beast.description}
+        key={index}
+      />
+    ))
+
 
 
     return (
@@ -24,8 +23,8 @@ class Main extends React.Component {
         {beastArray}
       </main>
     );
-
   }
 }
+
 
 export default Main

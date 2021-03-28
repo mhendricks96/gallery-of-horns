@@ -17,21 +17,22 @@ class HornedBeasts extends React.Component {
     this.setState({
       numberOfHearts: this.state.numberOfHearts + 1
     });
-    
+    this.props.handleClick({
+      title: this.props.title,
+      description: this.props.description,
+      image_url: this.props.image_url
+    })
   }
 
   render() {
     return (
-    <div>
-      <h2>{this.props.title}</h2>
-      <img onClick={this.buttonClicked} className= "animal-pictures" src={this.props.image_url} alt ={this.props.keyword} title={this.props.title}/>
-      <div><AiFillHeart />{this.state.numberOfHearts}</div>
-      <p>{this.props.description}</p>
-      <Button onClick={this.buttonClicked} variant="secondary" size="lg block">
-        This is my favorite Horned Beast!
-      </Button>
+      <div>
+        <h2>{this.props.title}</h2>
+        <img onClick={this.buttonClicked} className="animal-pictures" src={this.props.image_url} alt={this.props.keyword} title={this.props.title} />
+        <div><AiFillHeart />{this.state.numberOfHearts}</div>
+        <p>{this.props.description}</p>
 
-    </div>
+      </div>
     );
   }
 }
