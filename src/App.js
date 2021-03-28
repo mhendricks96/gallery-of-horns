@@ -1,5 +1,5 @@
-import './App.css';
 import React from 'react';
+import './App.css';
 import Footer from './Footer.js';
 import Header from './Header.js';
 import Main from './Main.js';
@@ -27,7 +27,7 @@ class App extends React.Component {
 
   hideBeastInModal = (clickedBeast) => {
     this.setState = {
-      show: false
+      show: false,
     }
   }
 
@@ -35,14 +35,14 @@ class App extends React.Component {
     return (
       <div>
         <Header />
+        <Main
+          beasts={data}
+          handleClick={this.showBeastInModal}
+        />
         <SelectedBeast 
         show= {this.state.show}
         hideBeast={this.hideBeastInModal}
         beast={this.state.beast}
-        />
-        <Main
-          beasts={data}
-          handleClick={this.showBeastInModal}
         />
         <Footer />
       </div>

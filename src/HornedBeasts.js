@@ -2,6 +2,7 @@ import React from 'react';
 //import Goat from 'src/goat.jpeg';
 import Button from 'react-bootstrap/Button';
 import { AiFillHeart } from 'react-icons/ai';
+import Card from 'react-bootstrap/Card';
 
 class HornedBeasts extends React.Component {
   constructor(props) {
@@ -26,15 +27,20 @@ class HornedBeasts extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>{this.props.title}</h2>
-        <img onClick={this.buttonClicked} className="animal-pictures" src={this.props.image_url} alt={this.props.keyword} title={this.props.title} />
-        <div><AiFillHeart />{this.state.numberOfHearts}</div>
-        <p>{this.props.description}</p>
-
-      </div>
-    );
-  }
+            <Card style={{ width: '30rem' }}>
+                <Card.Img onClick={this.buttonClicked} variant="top" src={this.props.image_url} />
+                <Card.Body>
+                    <Card.Title>{this.props.title}</Card.Title>
+                    <Card.Text>
+                        {this.props.description}
+                    </Card.Text>
+                    <Card.Text>
+                    <AiFillHeart />{this.state.numberOfHearts}
+                    </Card.Text>
+                </Card.Body>
+            </Card>
+        )
+    }
 }
 
 export default HornedBeasts;
