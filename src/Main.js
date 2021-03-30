@@ -9,7 +9,7 @@ class Main extends React.Component {
         let beastArray = this.props.beasts.map((beast, index) => (
             <HornedBeasts
             name = {beast.keyword}
-            title = {beast.ttle}
+            title = {beast.title}
             image_url = {beast.image_url}
             description = {beast.description}
             key={index}

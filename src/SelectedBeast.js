@@ -15,7 +15,7 @@ class SelectedBeast extends React.Component {
                 <img className= "modal-pics" src={this.props.beast.image_url} alt={this.props.beast.title}/>
             </Modal.Body>
             <Modal.Footer>
-              <h1>{this.props.beast.description}</h1>
+              <h2>{this.props.beast.description}</h2>
              <Button variant="primary" onClick={this.props.hideBeast}>Close</Button>
             </Modal.Footer>
          </Modal>
