@@ -3,7 +3,8 @@ div {
   background-color: lightblue;
 }
 
-.animal-pictures {
-  height: 200px;
-  width: 270px;
+
+main img {
+  height: auto;
+  width: auto;
 }

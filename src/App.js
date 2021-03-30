@@ -1,37 +1,42 @@
 import React from 'react';
 import './App.css';
-import Footer from './Footer.js';
 import Header from './Header.js';
 import Main from './Main.js';
+import Footer from './Footer.js'
 import SelectedBeast from './SelectedBeast';
 
-import data from './data.json'
+import data from './data.json';
 
 
 class App extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
       show: false,
+
       beast: {}
     }
+
   }
 
   showBeastInModal = (clickedBeast) => {
-    this.setState = {
+    this.setState({
       show: true,
-      beast: clickedBeast
-    }
+      beast: clickedBeast,
+
+    })
+    console.log(clickedBeast);
   }
 
-  hideBeastInModal = (clickedBeast) => {
-    this.setState = {
+  hideBeastInModal = () => {
+    this.setState({
       show: false,
-    }
+    })
   }
+
 
   render() {
+    console.log(this.state)
     return (
       <div>
         <Header />
@@ -39,15 +44,17 @@ class App extends React.Component {
           beasts={data}
           handleClick={this.showBeastInModal}
         />
-        <SelectedBeast 
-        show= {this.state.show}
-        hideBeast={this.hideBeastInModal}
-        beast={this.state.beast}
+        <SelectedBeast
+          show={this.state.show}
+          hideBeast={this.hideBeastInModal}
+          beast={this.state.beast}
         />
+
         <Footer />
       </div>
-    );
+    )
   }
 }
+
 
 export default App;
