@@ -2,6 +2,8 @@ import React from 'react';
 import HornedBeasts from './HornedBeasts';
 import CardColumns from 'react-bootstrap/CardColumns'
 import './Main.css';
+//import { Dropdown } from 'bootstrap';
+import Dropdown from 'react-bootstrap/Dropdown'
 
 
 class Main extends React.Component {
@@ -19,6 +21,19 @@ class Main extends React.Component {
 
             return (
             <main>
+             <Dropdown>
+                <Dropdown.Toggle variant="success" id="">
+                    Number of Horns
+                </Dropdown.Toggle>
+             
+
+             <Dropdown.Menu>
+                 <Dropdown.Item>1 Horn</Dropdown.Item>
+                 <Dropdown.Item>2 Horns</Dropdown.Item>
+                 <Dropdown.Item>3 Horns</Dropdown.Item>
+                 <Dropdown.Item>More</Dropdown.Item>
+             </Dropdown.Menu>
+             </Dropdown>
              <CardColumns>
                 {beastArray} 
              </CardColumns>
