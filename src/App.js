@@ -3,7 +3,7 @@ import './App.css';
 import Header from './Header.js';
 import Main from './Main.js';
 import Footer from './Footer.js'
-import ChooseHorns from './ChooseHorns.js';
+import Choose from './Choose.js';
 import SelectedBeast from './SelectedBeast';
 
 import data from './data.json';
@@ -37,21 +37,21 @@ class App extends React.Component {
     })
   }
 
+  filteredHorns = (beastData) => {
+    this.setState({beastData});
+  }
+  
+
 
   showHorns = (event) => {
     event.preventDefault();
-    console.log('something was clicked');
-    
-    this.setState({hornsSelected: event.target.value});
-
-    let beastsByHorns =this.state.data.filter((beast) => {
-      if (event.target.value === "all") {
-        return beast;
-      } else {
-        return beast.horns === +event.target.value;
-      }
-    });
-    this.setState({beastsByHorns});
+      
+    if (event === "all") {
+        this.setState({beastData: data})
+    }else{
+      console.log('i am stuck lol');
+    }
+  
   }
 
 
@@ -60,19 +60,15 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <ChooseHorns 
-        showHorns={this.showHorns}
-        />
         <Main
-          beasts={data}
+          beasts={this.state.data}
           handleClick={this.showBeastInModal}
-
+          showHorns={this.showHorns}
         />
         <SelectedBeast
           show={this.state.show}
           hideBeast={this.hideBeastInModal}
           beast={this.state.beast}
-          showHorns={this.showHorns}
         />
 
         <Footer />
