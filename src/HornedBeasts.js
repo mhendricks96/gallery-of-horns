@@ -1,6 +1,6 @@
 import React from 'react';
 //import Goat from 'src/goat.jpeg';
-import Button from 'react-bootstrap/Button';
+//import Button from 'react-bootstrap/Button';
 import { AiFillHeart } from 'react-icons/ai';
 import Card from 'react-bootstrap/Card';
 
