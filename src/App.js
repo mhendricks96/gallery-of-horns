@@ -3,6 +3,7 @@ import './App.css';
 import Header from './Header.js';
 import Main from './Main.js';
 import Footer from './Footer.js'
+import Choose from './Choose.js';
 import SelectedBeast from './SelectedBeast';
 
 import data from './data.json';
@@ -13,8 +14,10 @@ class App extends React.Component {
     super(props);
     this.state = {
       show: false,
-
-      beast: {}
+      data: data,
+      beastsByHorns: data,
+      beast: {},
+      hornsSelected: "all"
     }
 
   }
@@ -34,6 +37,23 @@ class App extends React.Component {
     })
   }
 
+  filteredHorns = (beastData) => {
+    this.setState({beastData});
+  }
+  
+
+
+  showHorns = (event) => {
+    event.preventDefault();
+      
+    if (event === "all") {
+        this.setState({beastData: data})
+    }else{
+      console.log('i am stuck lol');
+    }
+  
+  }
+
 
   render() {
     console.log(this.state)
@@ -41,8 +61,9 @@ class App extends React.Component {
       <div>
         <Header />
         <Main
-          beasts={data}
+          beasts={this.state.data}
           handleClick={this.showBeastInModal}
+          showHorns={this.showHorns}
         />
         <SelectedBeast
           show={this.state.show}
